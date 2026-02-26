@@ -1,0 +1,36 @@
+﻿INFORME FINAL
+
+Resumen ejecutivo
+-------------------
+En esta ejecución se evaluó la funcionalidad principal de la aplicación tipo Instagram Lite, incluyendo registro, login, gestión de publicaciones e interacciones (likes, comentarios, seguimiento).
+Se realizaron 32 casos de prueba funcionales sobre un ambiente móvil real con la versión Lite de la app.
+
+* Alcance: Registro y login, creación y edición de publicaciones, filtros, interacción con usuarios (likes, comentarios, seguir), persistencia de cambios y validaciones de acceso.
+
+* Ambiente: Dispositivo móvil Android, app Instagram versión Lite.
+
+* Resultados generales: 30 casos OK, 2 casos FAIL, 0 BLOQUEADOS.
+
+* Defectos críticos: Ninguno que bloquee el sistema; los defectos encontrados son funcionales leves a medios.
+
+
+
+2 Conclusiones
+   * La mayoría de las funcionalidades core funcionan correctamente y de manera estable.
+
+   * Se detectó un problema en la visualización inmediata del feed tras publicar una imagen (requiere refrescar pantalla).
+
+   * La validación de dominios de email no bloquea registros con dominios inexistentes (no afecta funcionalidad principal, pero puede generar errores de confirmación).
+
+   * La app solicita login antes de cualquier acción crítica cuando el usuario no está autenticado, cumpliendo los controles de seguridad esperados.
+
+
+
+
+
+3  Recomendaciones
+      * Revisar refresco del feed para garantizar que las publicaciones aparezcan inmediatamente.
+
+      * Considerar validar existencia de dominio de email o mejorar mensajes de error para usuarios que ingresen dominios inexistentes.
+
+      * Continuar monitoreando experiencia de usuario en interacciones para garantizar consistencia visual y persistencia de cambios.

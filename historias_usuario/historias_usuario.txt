@@ -1,0 +1,147 @@
+ANÁLISIS INICIAL
+----------------
+
+El presente proyecto consiste en el análisis funcional de una plataforma tipo red social, enfocándose en tres módulos principales: gestión de perfil y acceso, gestión de publicaciones y gestión de interacciones.
+
+Estas funcionalidades representan los procesos centrales del sistema, ya que permiten el acceso a la plataforma, la generación de contenido y la interacción entre usuarios.
+
+Debido a su impacto directo en la experiencia del usuario, se realizará una validación funcional detallada para garantizar su correcto funcionamiento.
+====================================================
+ÉPICA 1 – GESTIÓN DE PERFIL Y ACCESO
+====================================================
+
+Justificación:
+Se seleccionó esta épica porque representa la puerta de entrada principal a la plataforma. Es fundamental validar que el proceso de registro, inicio de sesión y gestión del perfil sea claro, seguro e intuitivo para el usuario. Cualquier falla en esta funcionalidad podría impedir el acceso al sistema o afectar la experiencia desde el primer momento.
+
+
+HU1 – Registro de usuario
+
+Como usuario
+Quiero poder registrarme en la plataforma
+Para acceder a sus funcionalidades.
+
+Criterios de aceptación:
+- El sistema debe permitir ingresar nombre, email y contraseña.
+- El email debe validarse con formato correcto.
+- La contraseña debe cumplir con los requisitos mínimos de seguridad establecidos por elsistema.
+- Todos los campos obligatorios deben validarse.
+- El sistema debe mostrar mensaje de confirmación al registrarse correctamente.
+
+
+HU2 – Inicio de sesión
+
+Como usuario
+Quiero iniciar sesión con mis credenciales
+Para acceder a mi cuenta personal.
+
+Criterios de aceptación:
+- El sistema debe permitir ingresar email y contraseña.
+- Debe validar que los datos sean correctos.
+- Debe mostrar mensaje de error si las credenciales son incorrectas.
+- El usuario debe poder acceder al sistema si los datos son válidos.
+
+
+HU3 – Edición de perfil
+
+Como usuario
+Quiero poder editar mi información personal
+Para mantener mis datos actualizados.
+
+Criterios de aceptación:
+- El sistema debe permitir modificar los datos editables.
+- Los cambios deben guardarse correctamente.
+- El sistema debe mostrar mensaje de confirmación al actualizar datos.
+
+
+====================================================
+ÉPICA 2 – GESTIÓN DE PUBLICACIONES
+====================================================
+
+Justificación:
+Se eligió esta épica porque constituye una de las funcionalidades centrales de la plataforma. Las publicaciones representan el contenido principal de la red social, por lo que es esencial validar su correcto funcionamiento.
+
+
+HU4 – Crear publicación
+
+Como usuario
+Quiero crear una publicación
+Para compartir contenido con otros usuarios.
+
+Criterios de aceptación:
+- El sistema debe permitir escribir contenido en un campo de texto.
+- La publicación debe guardarse correctamente.
+- Debe visualizarse en el perfil o feed del usuario.
+- No debe permitir publicar contenido vacío.
+
+
+HU5 – Editar publicación
+
+Como usuario
+Quiero editar una publicación existente
+Para corregir o actualizar su contenido.
+
+Criterios de aceptación:
+- El sistema debe permitir modificar el contenido.
+- Los cambios deben guardarse correctamente.
+- Debe reflejarse la actualización en el feed.
+
+
+HU6 – Eliminar publicación
+
+Como usuario
+Quiero eliminar una publicación
+Para remover contenido que ya no deseo mostrar.
+
+Criterios de aceptación:
+- El sistema debe permitir eliminar la publicación.
+- Debe solicitar confirmación antes de eliminar.
+- La publicación debe desaparecer del feed después de eliminarse.
+
+
+====================================================
+ÉPICA 3 – GESTIÓN DE INTERACCIONES
+====================================================
+
+Justificación:
+Se seleccionó esta épica porque la interacción entre usuarios es uno de los objetivos principales de una red social. Es fundamental validar que estas acciones funcionen correctamente para garantizar una experiencia fluida.
+
+
+HU7 – Dar “me gusta”
+
+Como usuario
+Quiero poder dar “me gusta” a una publicación
+Para interactuar con el contenido de otros usuarios.
+
+Criterios de aceptación:
+- El sistema debe permitir marcar la publicación con “me gusta”.
+- El contador de likes debe actualizarse correctamente.
+- El usuario debe poder quitar el “me gusta”.
+
+
+HU8 – Comentar publicación
+
+Como usuario
+Quiero comentar una publicación
+Para expresar mi opinión o interactuar con otros usuarios.
+
+Criterios de aceptación:
+- El sistema debe permitir escribir un comentario.
+- No debe permitir comentarios vacíos.
+- El comentario debe visualizarse correctamente debajo de la publicación.
+====================================================
+ALCANCE DEL TESTING
+====================================================
+
+Se realizarán:
+- Pruebas funcionales de registro, inicio de sesión y edición de perfil.
+- Validaciones de campos obligatorios y formatos de datos.
+- Pruebas de creación, edición y eliminación de publicaciones.
+- Validación de interacciones como “me gusta” y comentarios.
+- Pruebas positivas y negativas (datos válidos e inválidos).
+
+No se incluirán:
+- Pruebas de rendimiento o carga.
+- Pruebas de seguridad avanzadas.
+- Pruebas de compatibilidad entre múltiples navegadores.
+- Pruebas automatizadas.
+
