@@ -1,0 +1,302 @@
+﻿
+======================================================================
+PROYECTO: PRUEBAS DE API - FAKE STORE
+ESTUDIANTE: Génesis Virginia Guatache Colmenares
+============================================================
+ID CASO: API-01 (Prueba Positiva)
+MÉTODO: GET
+ENDPOINT: /carts
+DESCRIPCIÓN: Obtener la lista de todos los carritos de compra.
+ESTADO ESPERADO: 200 OK
+============================================================
+
+RESULTADO JSON (Evidencia):
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "date": "2020-03-02T00:00:00.000Z",
+    "products": [
+      { "productId": 1, "quantity": 4 },
+      { "productId": 2, "quantity": 1 },
+      { "productId": 3, "quantity": 6 }
+    ]
+  },
+  {
+    "id": 2,
+    "userId": 1,
+    "date": "2020-01-02T00:00:00.000Z",
+    "products": [
+      { "productId": 2, "quantity": 4 },
+      { "productId": 1, "quantity": 10 },
+      { "productId": 5, "quantity": 2 }
+    ]
+  }
+]
+------------------------------------------------------------
+
+
+============================================================
+ID CASO: API-02 (Prueba Positiva)
+MÉTODO: GET
+ENDPOINT: /products/1
+DESCRIPCIÓN: Consultar la información detallada del producto con ID 1.
+ESTADO ESPERADO: 200 OK
+============================================================
+
+RESULTADO JSON (Evidencia real de Postman):
+{
+    "id": 1,
+    "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+    "price": 109.95,
+    "description": "Your perfect pack for everyday use and walks in the forest...",
+    "category": "men's clothing",
+    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    "rating": {
+        "rate": 3.9,
+        "count": 120
+    }
+}
+------------------------------------------------------------
+============================================================
+ID CASO: API-03 (Prueba Negativa - Error de Escritura)
+MÉTODO: GET
+ENDPOINT: /productos
+DESCRIPCIÓN: Intentar acceder a un recurso usando el nombre en español.
+ESTADO ESPERADO: 404 Not Found
+============================================================
+
+RESULTADO (Evidencia real de Postman):
+Código de estado: 404 Not Found
+Cuerpo de respuesta:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /productos</pre>
+</body>
+</html>
+------------------------------------------------------------
+============================================================
+ID CASO: API-04 (Prueba Positiva - Creación)
+MÉTODO: POST
+ENDPOINT: /carts
+DESCRIPCIÓN: Crear un nuevo carrito enviando userId y productos.
+ESTADO ESPERADO: 201 Created
+============================================================
+
+RESULTADO JSON (Evidencia real de Postman):
+
+{
+    "id": 11,
+    "userId": 5,
+    "date": "2026-02-24",
+    "products": [
+        { "productId": 1, "quantity": 3 },
+        { "productId": 5, "quantity": 1 }
+    ]
+}
+------------------------------------------------------------
+
+============================================================
+ID CASO: API-05 (Prueba Positiva - Actualización)
+MÉTODO: PUT
+ENDPOINT: /products/7
+DESCRIPCIÓN: Actualizar los datos del producto con ID 7.
+ESTADO ESPERADO: 200 OK
+============================================================
+
+RESULTADO JSON (Evidencia real de Postman):
+
+{
+    "id": 7
+}
+------------------------------------------------------------
+
+============================================================
+ID CASO: API-06 (Prueba Positiva - Eliminación)
+MÉTODO: DELETE
+ENDPOINT: /products/6
+DESCRIPCIÓN: Eliminar el producto con ID 6.
+ESTADO ESPERADO: 200 OK
+============================================================
+
+RESULTADO JSON (Evidencia real de Postman):
+{
+    "id": 6,
+    "title": "Solid Gold Petite Micropave ",
+    "price": 168,
+    "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+    "category": "jewelery",
+    "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_t.png",
+    "rating": {
+        "rate": 3.9,
+        "count": 70
+    }
+}
+------------------------------------------------------------
+
+============================================================
+ID CASO: API-07 (Prueba Negativa - Recurso Inexistente)
+MÉTODO: GET
+ENDPOINT: /products/999
+DESCRIPCIÓN: Intentar consultar un producto que no existe en la DB.
+ESTADO ESPERADO: 404 Not Found o NULL
+============================================================
+Cuerpo de respuesta: (Vacío / null)
+Nota: El servidor no encuentra el registro, por lo que devuelve un cuerpo sin datos.
+------------------------------------------------------------
+
+============================================================
+ID CASO: API-08 (Prueba Negativa - Login Fallido)
+MÉTODO: POST
+ENDPOINT: /auth/login
+DESCRIPCIÓN: Validar error 401 al enviar credenciales incorrectas.
+ESTADO ESPERADO: 401 Unauthorized
+============================================================
+
+RESULTADO JSON (Evidencia real de Postman):
+RESULTADO (Evidencia real de Postman):
+Estado: 400 Bad Request
+Cuerpo: (Vacío)
+------------------------------------------------------------
+
+============================================================
+ID CASO: API-09 (Prueba Positiva - Usuarios)
+MÉTODO: GET
+ENDPOINT: /users
+DESCRIPCIÓN: Obtener la lista de usuarios registrados.
+ESTADO ESPERADO: 200 OK
+============================================================
+
+RESULTADO JSON (Evidencia real de Postman):
+[
+    {
+        "address": {
+            "geolocation": {
+                "lat": "-37.3159",
+                "long": "81.1496"
+            },
+            "city": "kilcoole",
+            "street": "new road",
+            "number": 7682,
+            "zipcode": "12926-3874"
+        },
+        "id": 1,
+        "email": "john@gmail.com",
+        "username": "johnd",
+        "password": "m38rmF$",
+        "name": {
+            "firstname": "john",
+            "lastname": "doe"
+        },
+        "phone": "1-570-236-7033",
+        "__v": 0
+    },
+    {
+        "address": {
+            "geolocation": {
+                "lat": "-37.3159",
+                "long": "81.1496"
+            },
+            "city": "kilcoole",
+            "street": "Lovers Ln",
+            "number": 7267,
+            "zipcode": "12926-3874"
+        },
+        "id": 2,
+        "email": "morrison@gmail.com",
+        "username": "mor_2314",
+        "password": "83r5^_",
+        "name": {
+            "firstname": "david",
+            "lastname": "morrison"
+        },
+        "phone": "1-570-236-7033",
+        "__v": 0
+    },
+    {
+        "address": {
+            "geolocation": {
+                "lat": "40.3467",
+                "long": "-30.1310"
+            },
+            "city": "Cullman",
+            "street": "Frances Ct",
+            "number": 86,
+            "zipcode": "29567-1452"
+        },
+        "id": 3,
+        "email": "kevin@gmail.com",
+        "username": "kevinryan",
+        "password": "kev02937@",
+        "name": {
+            "firstname": "kevin",
+            "lastname": "ryan"
+        },
+------------------------------------------------------------
+
+============================================================
+============================================================
+ID CASO: API-10 (Prueba Positiva - Filtro)
+MÉTODO: GET
+ENDPOINT: https://fakestoreapi.com/products/category/jewelery
+DESCRIPCIÓN: Validar que el sistema filtra y devuelve solo productos de joyería.
+ESTADO ESPERADO: 200 OK
+============================================================
+
+RESULTADO JSON (Evidencia real de Postman):
+[
+    {
+        "id": 5,
+        "title": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+        "price": 695,
+        "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
+        "category": "jewelery",
+        "image": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_t.png",
+        "rating": {
+            "rate": 4.6,
+            "count": 400
+        }
+    },
+    {
+        "id": 6,
+        "title": "Solid Gold Petite Micropave ",
+        "price": 168,
+        "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+        "category": "jewelery",
+        "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_t.png",
+        "rating": {
+            "rate": 3.9,
+            "count": 70
+        }
+    },
+    {
+        "id": 7,
+        "title": "White Gold Plated Princess",
+        "price": 9.99,
+        "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+        "category": "jewelery",
+        "image": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_t.png",
+        "rating": {
+            "rate": 3,
+            "count": 400
+        }
+    },
+    {
+        "id": 8,
+        "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+        "price": 10.99,
+        "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+        "category": "jewelery",
+        "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_t.png",
+        "rating": {
+            "rate": 1.9,
+            "count": 100
+        }
+    }
+]
+------------------------------------------------------------
